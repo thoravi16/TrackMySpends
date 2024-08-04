@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+:root {
+  --background-color: #1e1e2f; /* Deep blue background for the body */
+  --element-background-color: #27293d; /* Slightly lighter blue for elements */
+  --text-color: #ffffff; /* White text for good readability */
+  --accent-color-plus: #34c759; /* Green for income */
+  --accent-color-minus: #ff3b30; /* Red for expenses */
+  --btn-color: #007aff; /* Blue for buttons */
+  --border-color: #3a3a55; /* Subtle border color for separation */
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+}
+
+.container {
+  margin: 30px auto;
+  width: 400px;
+}
+
+h1, h4 {
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+h3 {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+  margin: 40px 0 10px;
+}
+
+.inc-exp-container {
+  background-color: var(--element-background-color);
+  box-shadow: var(--box-shadow);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.inc-exp-container > div {
+  flex: 1;
+  text-align: center;
+}
+
+.inc-exp-container > div:first-of-type {
+  border-right: 1px solid var(--border-color);
+}
+
+.money {
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin: 5px 0;
+}
+
+.money.plus {
+  color: var(--accent-color-plus);
+}
+
+.money.minus {
+  color: var(--accent-color-minus);
+}
+
+input[type='text'],
+input[type='number'] {
+  background-color: var(--element-background-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+}
+
+.btn {
+  background-color: var(--btn-color);
+  color: #fff;
+  border: 0;
+  display: block;
+  font-size: 16px;
+  margin: 10px 0 30px;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 40px;
+}
+
+.list li {
+  background-color: var(--element-background-color);
+  box-shadow: var(--box-shadow);
+  color: var(--text-color);
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.list li.plus {
+  border-right: 5px solid var(--accent-color-plus);
+}
+
+.list li.minus {
+  border-right: 5px solid var(--accent-color-minus);
+}
+
+.delete-btn {
+  background-color: var(--accent-color-minus);
+  border: 0;
+  color: #fff;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 2px 5px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-100%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.list li:hover .delete-btn {
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+    border: 2px solid #fff; /* White border added for better framing */
+  }
+
+  .container {
+    width: 100%; /* Full width on smaller screens */
+  }
+
+  input[type='text'], input[type='number'], .btn {
+    width: calc(100% - 20px); /* Responsive width with padding */
+  }
+}
+
+.btn, .list li, .inc-exp-container {
+  box-shadow: var(--box-shadow);
+}
+
+.btn:hover, .list li:hover {
+  transform: translateY(-2px); /* Slight raise effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+input[type='text']:focus, input[type='number']:focus {
+  box-shadow: 0 0 8px var(--accent-color-plus);
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    width: 100%; /* Full width on smaller screens */
+  }
+
+  input[type='text'], input[type='number'], .btn {
+    width: calc(100% - 20px); /* Responsive width with padding */
+  }
+}
+
+.list li:hover .delete-btn {
+  opacity: 1;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.delete-btn:hover {
+  transform: scale(1.1);
+}
